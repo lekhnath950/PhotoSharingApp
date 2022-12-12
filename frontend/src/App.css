@@ -1,0 +1,315 @@
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.aaa{
+    margin-top: 30px;
+}
+
+.account{
+    display: grid;
+    grid-template-columns: 60vw 40vw;
+    overflow-x: hidden;
+    z-index: 0;
+}
+
+.account-left{
+    overflow-y: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.account-right{
+    background-color: turquoise;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 20px;
+    width: min-content;
+    position: fixed;
+    left: 0;
+}
+
+.followsection{
+    display: flex;
+    gap: 3vw;
+}
+
+.followsection div {
+    align-items: center;
+    text-align: center;
+    padding: 0 !important;
+}
+
+.followsection button {
+    background-color: transparent;
+    border: none;
+}
+
+.loader{
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+}
+
+.profile-main{
+    display: grid;
+    grid-template-columns: 30vw 60vw;
+    gap: 5vw;
+}
+
+.user-profile{
+    border: 1px solid black;
+    position: fixed;
+    margin-top: 10vh;
+    padding: 30px 20px;
+    border-radius: 10px ;
+}
+
+.top-user{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    padding: 9px;
+}
+
+.utop1{
+    display: block;
+    align-items: center;
+}
+
+.utop1 h3{
+    font-weight: 500;
+    margin-top: -10px;
+}
+
+.followbutton{
+    margin-top: -13px;
+}
+
+.udown{
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    margin-top: 50px;
+}
+
+.udown div{
+    align-items: center;
+    text-align: center;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0.4px 1px 1px 1px grey;
+    gap: 10vw;
+    border-radius: 10px;
+}
+
+.udown div button{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+.udown div button:hover{
+    background-color: aliceblue;
+}
+
+.logout{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.user-post{
+    position: absolute;
+    right: 1%;
+}
+
+@media screen and (max-width: 600px) {
+    .profile-main{
+        display:block;
+        gap: 5vw;
+    }
+    
+    .user-profile{
+        border: 1px solid black;
+        position: relative;
+        margin-top: 10vh;
+        padding: 30px 20px;
+        border-radius: 10px ;
+    }
+    
+    .top-user{
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        padding: 9px;
+    }
+    
+    .utop1{
+        display: block;
+        align-items: center;
+    }
+    
+    .utop1 h3{
+        font-weight: 500;
+        margin-top: -10px;
+    }
+    
+    .followbutton{
+        margin-top: -13px;
+    }
+    
+    .udown{
+        display: flex;
+        align-items: center;
+        gap: 1vw;
+        margin-top: 20px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .udown div{
+        align-items: center;
+        text-align: center;
+        padding: 10px;
+        box-shadow: 0.4px 1px 1px 1px grey;
+        gap: 10vw;
+    }
+    
+    .udown div button{
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 20px;
+        margin-top: -10px;
+    }
+    
+    .udown div button:hover{
+        background-color: aliceblue;
+    }
+    
+    .user-post{
+        position: relative;
+        width: 100vw;
+    }
+
+    .postimage{
+        min-width: 95vw !important;
+    }
+
+    .home{
+        display: block !important;
+    }
+
+    .home-left{
+        position: absolute !important;
+        top: 15%
+    }
+
+    .accordion{
+        position: absolute !important;
+        right: 0%;
+        top: 8%;
+        margin: 0;
+        width: max-content !important;
+        background-color: transparent;
+    }
+
+    #panel2a-header{
+        height: 30px;
+    }
+
+    .header{
+        top:5%;
+    }
+
+    .appname{
+        font-size: small;
+        font-weight: 700px;
+    }
+
+    .navbuttons  svg{
+        font-size: 25px !important;
+    }
+
+    .explore{
+        padding: 0 !important;
+    }
+
+    .post{
+        width: 95vw !important;
+    }
+
+    .explorepage{
+        display: block !important;
+        margin-top: 40px;
+    }
+
+}
+
+
+
+.createpost{
+    text-align: center;
+    width: 40vw;
+    box-shadow: 1px 1px 2px grey;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    border: 1px solid grey;
+    padding: 20px 30px;
+}
+
+.newpost h3 {
+    margin-top: 10px;
+}
+
+.imageselector{
+    width: 200px;
+	height: 40px;
+    border: 1px solid grey;
+	opacity: 0;
+	overflow:hidden;
+	position: absolute;
+	z-index: 5;
+    margin-left: -100px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.captionn{
+    outline: none;
+    width: 20vw;
+    height: 30px;
+}
+
+
+.DialogBox{
+    padding: 20px 10px;
+}
+
+.dialog{
+    align-items: center;
+}
+
+.explore{
+    padding: 0 3vw;
+}
+
+.explorepage{
+    display: grid;
+    grid-template-columns: 30vw 30vw ;
+    column-gap:20vw;
+    row-gap: 10px;
+}
+
+
+
+.explorepost{
+    width: 20%;
+    height: auto !important;
+}
+
