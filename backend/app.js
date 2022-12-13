@@ -5,6 +5,16 @@ const cookieParser = require("cookie-parser");
 
 if(process.env.NODE_ENV !== "production") {
     require("dotenv").config({ path: "backend/config/config.env"});
+
+}
+
+if(process.env.NODE_ENV =='production') {
+    const path = require('path')
+
+    app.get('/',(req,res)=> {
+        app.use(express.static(path.resolve(__dirname,'frontend','build')))
+        res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
+    })
 }
 
 //middlewares
