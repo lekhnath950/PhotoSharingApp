@@ -16,10 +16,10 @@ if(process.env.NODE_ENV =='production') {
     //     res.sendFile(path.resolve(__dirname,'frontend','build','index.html'))
     // })
 
-    app.use(express.static(path.join(__dirname, "./frontend/build")));
+    app.use(express.static(path.join(__dirname, "../frontend/build")));
     app.get("*",function(_,res) {
         res.sendFile(
-            path.join(__dirname,"./frontend/build/index.html")
+            path.join(__dirname,"../frontend/build/index.html")
         )
     })
 }
