@@ -11,7 +11,10 @@ exports.register = async (req,res) => {
         if(user) { 
             return res
             .status(400)
-            .json({ success: false,  message: "User already exists"});
+            .json({ 
+                success: false,  
+                message: "User already exists"
+            });
         }
         user = await User.create({
              name, 
@@ -21,23 +24,19 @@ exports.register = async (req,res) => {
         });
 
         // res.status(201).json({ success: true, user})
-        const token = await user.generateToken();
+        // const token = await user.generateToken();
 
-        res.status(201)
-        .cookie("token", token, {expires: new Date(Date.now()+ 90* 24* 60* 60* 1000),
-        httpOnly: true
-        })
-        .json({
+        res.status(201).json({
             success: true,
-            message:"User created",
-            user,
-            token
+            message:"User created"
+            // user,
+            // token
         });
 
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: error.message
+            message:error.message
         })
     }
 }

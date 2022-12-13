@@ -30,7 +30,7 @@ const Post = ({
   const [commentValue, setCommentValue] = useState("")
   const [commentToggle, setCommentToggle] = useState(false)
 
-  const { user } = useSelector(state => state.user)
+  const { user } = useSelector(state => state.loaduser)
 
   const handleLike = () => {
     setLiked(!liked)

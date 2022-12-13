@@ -166,14 +166,14 @@ export const registerUser = (email, password, name) =>async  (dispatch) => {
 
         dispatch({
             type: "registerSuccess",
-            payload: data.user,
+            payload: data.message,
         })
         
     } catch (error) {
         
         dispatch({
             type: "registerFailure",
-            payload: error.message,
+            payload: error.response.data.message,
         })
     }
 

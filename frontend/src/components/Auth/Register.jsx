@@ -1,8 +1,8 @@
-import { Button, Snackbar, TextField } from '@mui/material'
+import { Alert, Button, Snackbar, TextField } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getallusersPosts, loadUser, registerUser } from '../../Actions/User'
+import { getallusersPosts, registerUser } from '../../Actions/User'
 
 
 const Register = () => {
@@ -12,7 +12,7 @@ const Register = () => {
     const [password, setPassword] = useState("")
 
     const [open, setOpen] = React.useState(false);
-    const {error} = useSelector((state) => state.user)
+    const {error,message} = useSelector((state) => state.user)
 
     const dispatch = useDispatch();
 
@@ -21,18 +21,33 @@ const Register = () => {
         e.preventDefault()
        await  dispatch(registerUser(email,password,name))
 
+      //  if(error) {
+      //    setOpen(true)          
+      //  }
+
+       if(message) {
+        setOpen(true)
+       }
+
+
        
       }
-      
-      useEffect(() => {
-        
-        if(error) {
-          setOpen(true)          
-        }
 
-        dispatch(getallusersPosts())
-        dispatch(loadUser());
-    },[dispatch, error])
+      const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }
+        setOpen(false);
+    };
+
+
+      
+    //   useEffect(() => {
+        
+
+    //     // dispatch(getallusersPosts())
+    //     // dispatch(loadUser());
+    // },[dispatch, error])
 
 
 
@@ -43,8 +58,8 @@ const Register = () => {
         <h4> Photo Sharing App</h4>
         <h5 style={{ fontWeight: '400' }}> Register here</h5>
 
-        <TextField className='inputt' type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="outlined-basic" label="Email" variant="outlined" required /> <br />
-        <TextField className='inputt' type="text" value={name} onChange={(e) => setName(e.target.value)} id="outlined-basic" label="Name" variant="outlined" required /> <br />
+        <TextField className='inputt' type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="outlined-basic" label="Email" variant="outlined" autoComplete='off' required /> <br />
+        <TextField className='inputt' type="text" value={name} onChange={(e) => setName(e.target.value)} id="outlined-basic" label="Name" variant="outlined" autoComplete='off' required /> <br />
         <TextField className='inputt' type="password" value={password} onChange={(e) => setPassword(e.target.value)} id="outlined-basic" label="Password" variant="outlined" required /> <br />
 
         <Button className='inputt' type="submit" variant='outlined'>SignUp</Button>
@@ -54,11 +69,22 @@ const Register = () => {
         </Link>
       </form>
 
-      <Snackbar
+      {/* {Alert(error)} */}
+      {
+        error ? (
+        <Alert severity='error'>{error}</Alert>
+        ) : null
+      }
+
+
+<Snackbar
   open={open}
-  autoHideDuration={6}
-  message={error}
+  autoHideDuration={5000}
+  message={message}
+  onClose={handleClose}
 />
+
+
     </div>
   )
 }

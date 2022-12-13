@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Button, TextField } from '@mui/material'
+import { Button, Snackbar, TextField } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { loginUser } from '../../Actions/User'
 import './Login.css'
 
@@ -9,13 +9,30 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
+    const [open, setOpen] = React.useState(false);
+    const dispatch = useDispatch();
 
-  const loginHandler = (e) => {
+  const {error,message} = useSelector((state) => state.user)
+
+
+  const loginHandler = async (e) => {
     e.preventDefault();
 
-    dispatch(loginUser(email, password));
+    await  dispatch(loginUser(email, password));
+    if(error) {
+      setOpen(true)          
+    }
   }
+
+
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+};
+
 
   return (
     <div className='login'>
@@ -33,6 +50,13 @@ function Login() {
           <h5 style={{ fontWeight: '400' }}>Dont have an account?<br/><u style={{color:'blue'}}>Register here</u></h5>
         </Link>
       </form>
+
+      <Snackbar
+  open={open}
+  autoHideDuration={5000}
+  message={error}
+  onClose={handleClose}
+/>
     </div>
   )
 }

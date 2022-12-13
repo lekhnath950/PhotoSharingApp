@@ -17,7 +17,7 @@ const Profile = () => {
   const dispatch = useDispatch();
   const params = useParams()
 
-  const { user: me } = useSelector((state) => state.user)
+  const { user: me } = useSelector((state) => state.loaduser)
 
   const [followersToggle, setFollowersToggle] = useState(false)
   const [followingToggle, setFollowingToggle] = useState(false)

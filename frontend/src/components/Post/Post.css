@@ -39,7 +39,7 @@ a{
     width: 40vw;
     overflow: hidden;
     aspect-ratio:3/2;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .caption{
