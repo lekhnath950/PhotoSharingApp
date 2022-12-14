@@ -42,10 +42,8 @@ export const userReducer = createReducer(initialState, {
     logoutUserFailure: (state, action) => {
         state.loading = false;
         state.error = action.payload;
-    }
-})
+    },
 
-export const loaduserReducer = createReducer(initialState, {
     loadUserRequest: (state) => {
         state.loading = true;
     },
@@ -58,10 +56,14 @@ export const loaduserReducer = createReducer(initialState, {
         state.loading = false;
         state.error = action.payload;
     },
-
-
-
 })
+
+// export const loaduserReducer = createReducer(initialState, {
+
+
+
+
+// })
 
 
 export const postOfFollowingReducer = createReducer(initialState,{

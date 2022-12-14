@@ -12,7 +12,7 @@ function Login() {
     const [open, setOpen] = React.useState(false);
     const dispatch = useDispatch();
 
-  const {error,message} = useSelector((state) => state.user)
+  const {error} = useSelector((state) => state.user)
 
 
   const loginHandler = async (e) => {
@@ -41,7 +41,7 @@ function Login() {
         <h4> Photo Sharing App</h4>
         <h5 style={{ fontWeight: '400' }}> Login here</h5>
 
-        <TextField className='inputt' type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="outlined-basic" label="Email" variant="outlined" required /> <br />
+        <TextField autoComplete='off' className='inputt' type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="outlined-basic" label="Email" variant="outlined" required /> <br />
         <TextField className='inputt' type="password" value={password} onChange={(e) => setPassword(e.target.value)} id="outlined-basic" label="Password" variant="outlined" required /> <br />
 
         <Button className='inputt' type="submit" variant='outlined'>Login</Button>

@@ -17,7 +17,7 @@ const Profile = () => {
   const dispatch = useDispatch();
   const params = useParams()
 
-  const { user: me } = useSelector((state) => state.loaduser)
+  const { user: me } = useSelector((state) => state.user)
 
   const [followersToggle, setFollowersToggle] = useState(false)
   const [followingToggle, setFollowingToggle] = useState(false)
@@ -136,10 +136,9 @@ const Profile = () => {
                 caption={post.caption}
                 likes={post.likes}
                 comments={post.comments}
-                isDelete={true}
+                isDelete={false}
                 isAccount={true}
                 Time={post.createdAt}
-              // Time={moment(post.createdAt.toDate()).calendar()}
               />
             )) : <h6>No post</h6>
           }

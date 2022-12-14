@@ -12,7 +12,7 @@ const Account = () => {
 
     const dispatch = useDispatch();
 
-    const { user } = useSelector((state) => state.loaduser)
+    const { user } = useSelector((state) => state.user)
 
     const [followersToggle, setFollowersToggle] = useState(false)
     const [followingToggle, setFollowingToggle] = useState(false)

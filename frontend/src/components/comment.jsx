@@ -1,6 +1,6 @@
 import { Avatar } from '@mui/material'
 import React from 'react'
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 
@@ -9,12 +9,12 @@ const Comment = ({
     name,
     avatar,
     comment,
-    commentId,
-    postId,
+    // commentId,
+    // postId,
     // isAccount
 }) => {
 
-    const { user } = useSelector((state) => state.user)
+    // const { user } = useSelector((state) => state.user)
 
   return (
     <div >

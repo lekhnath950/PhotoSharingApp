@@ -1,8 +1,8 @@
-import { Alert, Button, Snackbar, TextField } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import { Button, Snackbar, TextField } from '@mui/material'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { getallusersPosts, registerUser } from '../../Actions/User'
+import {  registerUser } from '../../Actions/User'
 
 
 const Register = () => {
@@ -12,7 +12,7 @@ const Register = () => {
     const [password, setPassword] = useState("")
 
     const [open, setOpen] = React.useState(false);
-    const {error,message} = useSelector((state) => state.user)
+    const {error} = useSelector((state) => state.user)
 
     const dispatch = useDispatch();
 
@@ -25,7 +25,7 @@ const Register = () => {
       //    setOpen(true)          
       //  }
 
-       if(message) {
+       if(error) {
         setOpen(true)
        }
 
@@ -41,15 +41,7 @@ const Register = () => {
     };
 
 
-      
-    //   useEffect(() => {
-        
-
-    //     // dispatch(getallusersPosts())
-    //     // dispatch(loadUser());
-    // },[dispatch, error])
-
-
+    
 
   return (
     <div className="login">
@@ -69,18 +61,17 @@ const Register = () => {
         </Link>
       </form>
 
-      {/* {Alert(error)} */}
-      {
+      {/* {
         error ? (
         <Alert severity='error'>{error}</Alert>
         ) : null
-      }
+      } */}
 
 
 <Snackbar
   open={open}
   autoHideDuration={5000}
-  message={message}
+  message={error}
   onClose={handleClose}
 />
 

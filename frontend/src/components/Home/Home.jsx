@@ -18,7 +18,7 @@ function Home() {
   useEffect(() => {
     dispatch(getFollowingPosts());
     dispatch(getallusersPosts());
-
+    // dispatch(loadUser())
   }, [dispatch])
 
   return (

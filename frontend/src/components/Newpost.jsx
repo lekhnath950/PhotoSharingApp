@@ -1,5 +1,5 @@
 import { Button, Snackbar } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { createNewPost } from '../Actions/Post'
 import { loadUser } from '../Actions/User'
@@ -12,7 +12,7 @@ const Newpost = () => {
 
     const [open, setOpen] = React.useState(false);
 
-    const { loading, error, message } = useSelector((state) => state.like);
+    const { loading, message } = useSelector((state) => state.like);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];

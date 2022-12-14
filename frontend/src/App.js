@@ -21,7 +21,7 @@ function App() {
     dispatch(loadUser());
   }, [dispatch])
 
-  const {isAuthenticated} = useSelector((state) => state.loaduser)
+  const {isAuthenticated} = useSelector((state) => state.user)
 
   return (
     <Router>
