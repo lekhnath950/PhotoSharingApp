@@ -1,5 +1,5 @@
 const express = require("express");
-const { register, login, followUser, logout, updatePassword, updateProfile, deleteMyProfile, myProfile, getUserProfile, getAllUsers, getMyPost, getUserPost } = require("../controllers/user");
+const { register, login, followUser, logout, updatePassword, updateProfile, deleteMyProfile, myProfile, getUserProfile, getAllUsers, getMyPost, getUserPost, getAlluser } = require("../controllers/user");
 const { isAuthenticated } = require("../middlewares/auth");
 
 const router = express.Router();
@@ -25,6 +25,7 @@ router.route("/my/posts").get(isAuthenticated, getMyPost)
 router.route("/userpost/:id").get(isAuthenticated, getUserPost)
 router.route("/user/:id").get(isAuthenticated, getUserProfile)
 router.route("/users").get(isAuthenticated, getAllUsers)
+router.route("/_user").get(isAuthenticated, getAlluser)
 
 
 module.exports = router;  
