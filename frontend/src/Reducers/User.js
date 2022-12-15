@@ -99,6 +99,24 @@ export const allusersReducer = createReducer(initialState,{
     clearErrors: (state) => {
         state.error = null;
     },
+
+
+
+    
+})
+
+export const searchUserReducer = createReducer(initialState,{
+        getalluserRequest: (state) => {
+        state.loading = true;
+    },
+    getalluserSuccess: (state, action) => {
+        state.loading = false;
+        state.users = action.payload;
+    },
+    getalluserFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
 })
 
 export const userProfileReducer = createReducer(initialState,{

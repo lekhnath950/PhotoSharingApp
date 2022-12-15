@@ -4,6 +4,7 @@ import Post from './Post/Post'
 import { useDispatch, useSelector } from 'react-redux'
 import Loader from './Loader/Loader'
 import { allPosts } from '../Actions/Post'
+import Search from './Search'
 
 export default function Explore() {
 
@@ -17,6 +18,14 @@ export default function Explore() {
   }, [dispatch])
 
   return (
+    <>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <Search/>
+    {
 
     loading ? <Loader /> : (
       <div className="explore">
@@ -47,5 +56,7 @@ export default function Explore() {
 
       </div>
     )
+  }
+    </>
   )
 }

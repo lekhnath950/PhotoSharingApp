@@ -101,6 +101,31 @@ export const getallusersPosts = () => async (dispatch) => {
         
     }
 }
+export const getAlluser = (name="") => async (dispatch) => {
+
+    try {
+
+        dispatch({
+            type: "getalluserRequest",
+        });
+
+        const {data} = await axios.get(`/api/_user?name=${name}`);
+
+        dispatch({
+            type: "getalluserSuccess",
+            payload: data.users,
+        });
+        
+    } catch (error) {
+        dispatch({
+            type: "getalluserFailure",
+            payload: error.response.data.message,
+        })
+        
+    }
+}
+
+
 export const getMyPost = () => async (dispatch) => {
 
     try {

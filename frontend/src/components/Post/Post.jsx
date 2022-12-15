@@ -46,9 +46,11 @@ const Post = ({
     })
   }, [likes, user._id])
 
-  const addCommentHandler = (e) => {
+  const addCommentHandler = async (e) => {
     e.preventDefault()
-    dispatch(addComment(postId, commentValue))
+   await dispatch(addComment(postId, commentValue))
+    dispatch(getFollowingPosts());
+
   }
 
   const deletePostHandler = async () => {
