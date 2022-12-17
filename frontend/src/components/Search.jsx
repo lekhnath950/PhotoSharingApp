@@ -21,16 +21,15 @@ const Search = () => {
     // },[dispatch])
     
   return (
-    <div>
-        <Paper sx={{ p:'2px 4px', display:'flex', alignItems:'center', backgroundColor:'white', width:'20vw', justifyContent:'space-between'}} >
+    <div className='searchuser'>
+        <Paper className='searchbar' >
         <form onSubmit={submitHandler} >
             <InputBase placeholder='search user' value={name}  onChange={(e)=> setName(e.target.value)} required/>
-            {/* <input type="text" value={name} placeholder="search" onChange={(e)=> setName(e.target.value)} required /> */}
-            <button type="submit" style={{border:'none', backgroundColor:'white'}}><SearchOutlined sx={{border:'none'}} /></button>
+            <button type="submit" style={{border:'none', backgroundColor:'transparent'}}><SearchOutlined sx={{border:'none'}} /></button>
         </form>
         </Paper>
 
-        <div>
+        <div className='searchlist'>
             {
                 users && users.map((user)=> (
                     <User
@@ -41,6 +40,7 @@ const Search = () => {
                     />
                 ))
             }
+
         </div>
     </div>
   )

@@ -305,13 +305,22 @@ body{
 
 .explore{
     padding: 0 3vw;
+    margin-left: 25vw;
 }
 
 .explorepage{
     display: grid;
-    grid-template-columns: 30vw 30vw ;
-    column-gap:20vw;
+    grid-template-columns: auto auto auto ;
+    column-gap:2vw;
     row-gap: 10px;
+}
+
+.explorepage .post{
+    max-width: 20vw !important;
+}
+
+.explorepage .postimage{
+    width: 20vw;
 }
 
 
@@ -321,3 +330,27 @@ body{
     height: auto !important;
 }
 
+.searchuser{
+    width: 20vw;
+    border: 1px solid darkblue;
+    height: 100vh !important;
+    position: absolute;
+}
+
+.searchbar{
+    padding: 4px 4px;
+    display: flex;
+    width: max-content;
+    box-shadow: 1px 1px 2px black;
+}
+
+
+
+.searchlist{
+    border: 1px solid grey;
+    width: 20vw;
+}
+
+.searchlist a {
+    border-bottom: 1px solid red;
+}

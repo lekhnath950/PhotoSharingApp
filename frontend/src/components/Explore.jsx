@@ -19,17 +19,11 @@ export default function Explore() {
 
   return (
     <>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <Search/>
+    <Search />
     {
 
     loading ? <Loader /> : (
       <div className="explore">
-        {/* <Search/> */}
 
         <div className='explorepage'>
 

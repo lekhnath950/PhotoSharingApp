@@ -4,7 +4,7 @@ import { Avatar, Button, Dialog, TextField } from '@mui/material'
 import { Favorite, FavoriteBorder, ChatBubbleOutline, Delete} from "@mui/icons-material"
 import "./Post.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { addComment, deletePost, likePost } from '../../Actions/Post'
+import { addComment,  allPosts,  deletePost, likePost } from '../../Actions/Post'
 import { getFollowingPosts, getMyPost, loadUser } from "../../Actions/User"
 import User from '../User/User'
 import Comment from '../comment'
@@ -31,6 +31,7 @@ const Post = ({
   const [commentToggle, setCommentToggle] = useState(false)
 
   const { user } = useSelector(state => state.user)
+  const {message, loading} = useSelector((state)=> state.like)
 
   const handleLike = () => {
     setLiked(!liked)
@@ -39,6 +40,8 @@ const Post = ({
   }
 
   useEffect(() => {
+
+    // dispatch(allPosts())
     likes.forEach(item => {
       if (item._id === user._id) {
         setLiked(true)
@@ -48,9 +51,8 @@ const Post = ({
 
   const addCommentHandler = async (e) => {
     e.preventDefault()
+  //  await dispatch(allPosts())
    await dispatch(addComment(postId, commentValue))
-    dispatch(getFollowingPosts());
-
   }
 
   const deletePostHandler = async () => {
@@ -83,7 +85,7 @@ const Post = ({
       </div>
 
       <div>
-        <img src={postImage} alt="postimage" className='postimage'/>
+        <img src={postImage} alt="postimage" loading='lazy' className='postimage'/>
       </div>
 
 
@@ -138,7 +140,12 @@ const Post = ({
             <TextField type="text" value={commentValue} onChange={(e) => setCommentValue(e.target.value)} placeholder="Type your comment" required /> <br/><br/>
             <Button type="submit"variant='contained' >Comment</Button>
           </form>
-          <h4>Comments on this Post:</h4>
+          <h4>Comments on this Post:{
+            message ? (
+              message
+            ): null
+            } 
+          </h4>
 
           {
             comments.length > 0 ? comments.map((item) =>
