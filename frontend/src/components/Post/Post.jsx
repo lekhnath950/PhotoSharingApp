@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Avatar, Button, Dialog, TextField } from '@mui/material'
+import { Avatar, Button, Dialog, Snackbar, TextField } from '@mui/material'
 import { Favorite, FavoriteBorder, ChatBubbleOutline, Delete} from "@mui/icons-material"
 import "./Post.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { addComment,  allPosts,  deletePost, likePost } from '../../Actions/Post'
+import { addComment,  deletePost, likePost } from '../../Actions/Post'
 import { getFollowingPosts, getMyPost, loadUser } from "../../Actions/User"
 import User from '../User/User'
 import Comment from '../comment'
@@ -32,16 +32,16 @@ const Post = ({
 
   const { user } = useSelector(state => state.user)
   const {message, loading} = useSelector((state)=> state.like)
+  const [open, setOpen] = React.useState(false);
 
   const handleLike = () => {
     setLiked(!liked)
     dispatch(likePost(postId));
-    dispatch(getFollowingPosts()); // updates automatically without refreshing but page will refresh
+    dispatch(getFollowingPosts()); 
   }
 
   useEffect(() => {
 
-    // dispatch(allPosts())
     likes.forEach(item => {
       if (item._id === user._id) {
         setLiked(true)
@@ -51,8 +51,8 @@ const Post = ({
 
   const addCommentHandler = async (e) => {
     e.preventDefault()
-  //  await dispatch(allPosts())
-   await dispatch(addComment(postId, commentValue))
+    await dispatch(addComment(postId, commentValue))
+    setOpen(true)
   }
 
   const deletePostHandler = async () => {
@@ -60,6 +60,15 @@ const Post = ({
     dispatch(getMyPost());
     dispatch(loadUser());
   };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+};
+
+
 
 
 
@@ -138,13 +147,9 @@ const Post = ({
 
           <form className='' onSubmit={addCommentHandler} >
             <TextField type="text" value={commentValue} onChange={(e) => setCommentValue(e.target.value)} placeholder="Type your comment" required /> <br/><br/>
-            <Button type="submit"variant='contained' >Comment</Button>
+            <Button type="submit" disabled={loading} variant='contained' >Comment</Button>
           </form>
-          <h4>Comments on this Post:{
-            message ? (
-              message
-            ): null
-            } 
+          <h4>Comments on this Post:
           </h4>
 
           {
@@ -165,6 +170,13 @@ const Post = ({
 
         </div>
       </Dialog>
+
+      <Snackbar
+  open={open}
+  autoHideDuration={5000}
+  message={message}
+  onClose={handleClose}
+/>
 
 
     </div>

@@ -29,10 +29,6 @@ body{
     left: 0;
 }
 
-::-webkit-scrollbar {
-    width: 1px;
-}
-
 .followsection{
     display: flex;
     gap: 3vw;
@@ -68,6 +64,7 @@ body{
     margin-top: 10vh;
     padding: 30px 20px;
     border-radius: 10px ;
+    margin-left: 40px;
 }
 
 .top-user{
@@ -127,7 +124,7 @@ body{
 
 .user-post{
     position: absolute;
-    right: 1%;
+    right: 10%;
 }
 
 @media screen and (max-width: 600px) {
@@ -306,6 +303,7 @@ body{
 .explore{
     padding: 0 3vw;
     margin-left: 25vw;
+    position: relative;
 }
 
 .explorepage{
@@ -313,6 +311,7 @@ body{
     grid-template-columns: auto auto auto ;
     column-gap:2vw;
     row-gap: 10px;
+    margin-top: -50px;
 }
 
 .explorepage .post{
@@ -332,25 +331,63 @@ body{
 
 .searchuser{
     width: 20vw;
-    border: 1px solid darkblue;
-    height: 100vh !important;
-    position: absolute;
+    position: sticky;
+    top: 20px;
+
 }
+
+
+
+::-webkit-scrollbar{
+    width: 5px;
+}
+
+
+
+::-webkit-scrollbar-track {
+    /* background: pink; */
+}
+
+::-webkit-scrollbar-thumb {
+        background: #888;
+}
+
 
 .searchbar{
     padding: 4px 4px;
     display: flex;
-    width: max-content;
+    width: 20vw;
     box-shadow: 1px 1px 2px black;
 }
 
 
 
 .searchlist{
-    border: 1px solid grey;
-    width: 20vw;
+    /* border: 1px solid grey; */
+    width: 18vw;
+    height: 400px !important;
+    position: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    top: 20%;
 }
 
 .searchlist a {
-    border-bottom: 1px solid red;
+    border-bottom: 1px solid grey;
+    border-right: 1px solid grey;
+}
+
+.searchbutton{
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    padding: 0 !important;
+    width: 90%;
+}
+
+.searchlist a:hover{
+    background-color: #F8EDE3;
+    transition: 0.5s;
+    color: #1C315E;
+    margin-left: 2px;
 }

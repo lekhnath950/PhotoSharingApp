@@ -1,4 +1,4 @@
-import { InputBase, Paper } from '@mui/material'
+import { Button, InputBase, Paper } from '@mui/material'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAlluser } from '../Actions/User'
@@ -25,7 +25,7 @@ const Search = () => {
         <Paper className='searchbar' >
         <form onSubmit={submitHandler} >
             <InputBase placeholder='search user' value={name}  onChange={(e)=> setName(e.target.value)} required/>
-            <button type="submit" style={{border:'none', backgroundColor:'transparent'}}><SearchOutlined sx={{border:'none'}} /></button>
+            <Button type="submit" variant='outlined' className='searchbutton' ><SearchOutlined sx={{border:'none'}} /></Button>
         </form>
         </Paper>
 
