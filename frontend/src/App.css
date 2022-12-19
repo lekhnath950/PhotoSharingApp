@@ -92,7 +92,7 @@ body{
     display: flex;
     align-items: center;
     gap: 1vw;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .udown div{
@@ -128,6 +128,16 @@ body{
 }
 
 @media screen and (max-width: 600px) {
+
+    .home-left{
+        /* position: relative !important; */
+        left: 1% !important;
+    }
+
+    .homeright{
+        display: none !important;
+    }
+
     .profile-main{
         display:block;
         gap: 5vw;
@@ -139,6 +149,7 @@ body{
         margin-top: 10vh;
         padding: 30px 20px;
         border-radius: 10px ;
+        margin-left: 0;
     }
     
     .top-user{
@@ -146,6 +157,7 @@ body{
         align-items: center;
         column-gap: 10px;
         padding: 9px;
+        margin-left: 30%;
     }
     
     .utop1{
@@ -165,7 +177,8 @@ body{
     .udown{
         display: flex;
         align-items: center;
-        gap: 1vw;
+        /* gap: 10vw; */
+        justify-content: space-between;
         margin-top: 20px;
         text-align: center;
         margin-left: auto;
@@ -191,10 +204,30 @@ body{
     .udown div button:hover{
         background-color: aliceblue;
     }
+
+    .searchlist a{
+        padding: 0 !important;
+        height: 40px;
+        width: 50vw;
+    }
     
+    .searchlist a div{
+        height: 20px;
+        width: 20px;
+    }
+
+    .searchlist a div svg{
+        height: 15px;
+    }
+
+    .username{
+        font-size: 14px;
+        font-weight: 500;
+    }
     .user-post{
         position: relative;
-        width: 100vw;
+        right: 0;
+        width: 97vw;
     }
 
     .postimage{
@@ -205,10 +238,6 @@ body{
         display: block !important;
     }
 
-    .home-left{
-        position: absolute !important;
-        top: 15%
-    }
 
     .accordion{
         position: absolute !important;
@@ -238,6 +267,11 @@ body{
 
     .explore{
         padding: 0 !important;
+        margin-top: 20% !important;
+        /* position: absolute;
+        left: 0%;
+        top: 15%; */
+        margin-left:0vw !important;
     }
 
     .post{
@@ -249,9 +283,39 @@ body{
         margin-top: 40px;
     }
 
+    .explorepage .post{
+        min-width: 95vw !important;
+    }
+
+
+
+    .searchuser{
+        width: 100vw;
+    }
+
+    .searchbar{
+        width: max-content !important;
+    }
+
+    .css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
+        border: none !important;
+    }
+
+    .searchbutton{
+        width: 30px !important;
+    }
+
+    .searchlist{
+        position: relative !important;
+        height: 200px !important;
+        width: 100vw !important;
+    }
+
 }
 
-
+.searchbar > .css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
+    border: none !important;
+}
 
 .createpost{
     text-align: center;
@@ -311,7 +375,7 @@ body{
     grid-template-columns: auto auto auto ;
     column-gap:2vw;
     row-gap: 10px;
-    margin-top: -50px;
+    margin-top: -30px;
 }
 
 .explorepage .post{
@@ -365,7 +429,7 @@ body{
 .searchlist{
     /* border: 1px solid grey; */
     width: 18vw;
-    height: 400px !important;
+    height: 400px ;
     position: fixed;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -382,7 +446,7 @@ body{
     cursor: pointer;
     border: none;
     padding: 0 !important;
-    width: 90%;
+    width: 30px;
 }
 
 .searchlist a:hover{

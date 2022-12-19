@@ -38,6 +38,7 @@ const Post = ({
     setLiked(!liked)
     dispatch(likePost(postId));
     dispatch(getFollowingPosts()); 
+    setOpen(true)
   }
 
   useEffect(() => {
