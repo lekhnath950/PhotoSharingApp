@@ -49,7 +49,7 @@ const Newpost = () => {
                     <input type="file" name="file" accepts="image/*" onChange={handleImageChange} className="imageselector" required/> <br/>
                     <label for="file">Choose a Photo</label> <br/>
                     <input type='text' placeholder="caption" value={caption} className="captionn" onChange={(e) => setCaption(e.target.value)} required /> <br/><br/>
-                    <Button disabled={loading} type="submit" variant='outlined'  >Post</Button>
+                    <Button disabled={loading} type="submit" variant='outlined'> Post </Button>
                 </form>
                     
 <Snackbar
