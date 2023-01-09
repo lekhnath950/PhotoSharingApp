@@ -124,6 +124,29 @@ export const getAlluser = (name="") => async (dispatch) => {
         
     }
 }
+export const getAlluserc = (city="") => async (dispatch) => {
+
+    try {
+
+        dispatch({
+            type: "getallusercRequest",
+        });
+
+        const {data} = await axios.get(`/api/usersc?city=${city}`);
+
+        dispatch({
+            type: "getallusercSuccess",
+            payload: data.users,
+        });
+        
+    } catch (error) {
+        dispatch({
+            type: "getallusercFailure",
+            payload: error.response.data.message,
+        })
+        
+    }
+}
 
 
 export const getMyPost = () => async (dispatch) => {
@@ -175,7 +198,7 @@ export const logoutUser = () =>async  (dispatch) => {
 
 }
 
-export const registerUser = (email, password, name) =>async  (dispatch) => {
+export const registerUser = (email, password, name, username,city,avatar) =>async  (dispatch) => {
 
     try {
 
@@ -183,7 +206,7 @@ export const registerUser = (email, password, name) =>async  (dispatch) => {
             type: "registerRequest"
         })
 
-        const {data} = await axios.post("/api/register",{email, password, name}, {
+        const {data} = await axios.post("/api/register",{email, password, name,username, city,avatar}, {
             headers:{
                 "Content-Type": "application/json"
             }
@@ -276,3 +299,32 @@ export const followUnfollow = (id) => async (dispatch) => {
         
     }
 }
+export const avatarUpload = (avatar) => async (dispatch) => {
+
+    try {
+
+        dispatch({
+            type: "avatarRequest",
+        });
+
+        const {data} = await axios.put("/api/avatar",{avatar},
+        {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        dispatch({
+            type: "avatarSuccess",
+            payload: data.message,
+        });
+        
+    } catch (error) {
+        dispatch({
+            type: "avatarFailure",
+            payload: error.response.data.message,
+        })
+        
+    }
+}
+

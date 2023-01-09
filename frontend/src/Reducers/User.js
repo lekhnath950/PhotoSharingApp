@@ -118,6 +118,19 @@ export const searchUserReducer = createReducer(initialState,{
         state.error = action.payload;
     },
 })
+export const searchUsercReducer = createReducer(initialState,{
+        getallusercRequest: (state) => {
+        state.loading = true;
+    },
+    getallusercSuccess: (state, action) => {
+        state.loading = false;
+        state.users = action.payload;
+    },
+    getallusercFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
+})
 
 export const userProfileReducer = createReducer(initialState,{
     userProfileRequest: (state) => {
@@ -135,3 +148,10 @@ export const userProfileReducer = createReducer(initialState,{
         state.error = null;
     },
 })
+// export const avatarUpl = createReducer(initialState,{
+
+//     clearErrors: (state) => {
+//         state.error = null;
+//     },
+// })
+

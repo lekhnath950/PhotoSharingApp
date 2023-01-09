@@ -37,7 +37,7 @@ const Post = ({
   const handleLike = () => {
     setLiked(!liked)
     dispatch(likePost(postId));
-    dispatch(getFollowingPosts()); 
+    dispatch(getFollowingPosts());
     setOpen(true)
   }
 
@@ -53,6 +53,8 @@ const Post = ({
   const addCommentHandler = async (e) => {
     e.preventDefault()
     await dispatch(addComment(postId, commentValue))
+    dispatch(getMyPost())
+    // dispatch(allPosts())
     setOpen(true)
   }
 
@@ -69,6 +71,10 @@ const Post = ({
     setOpen(false);
 };
 
+// useEffect(()=>{
+//   dispatch(allPosts())
+// })
+
 
 
 
@@ -79,10 +85,11 @@ const Post = ({
       <div className='postheader'>
 
         <div className='headertop'>
-          <Avatar src={"ownerImage"}  sc={{ height: "3vmax", width: "3vmax" }} />
+          <Avatar src={ownerImage}  sc={{ height: "3vmax", width: "3vmax" }} />
           <Link to={`/user/${ownerId}`} >
             <h4>{ownerName}</h4>
 
+            <p className='time'>{Time}</p>
           </Link>
         </div>
         {isDelete ? (
@@ -134,7 +141,7 @@ const Post = ({
                 key={like._id}
                 UserId={like._id}
                 name={like.name}
-                // avatar={like.avatar.url} 
+                avatar={like.avatar.url} 
               />
             ))
           }

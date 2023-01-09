@@ -1,6 +1,20 @@
 body{
     font-family: 'Poppins', sans-serif;
+    /* background-image: url('./components/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat repeat-y; */
+    /* background-image: linear-gradient(to right bottom, #06327c, #d3d6dc, #ced1d6, #000000, #c4c6c9); */
 }
+
+.blur {
+    position: fixed;
+    width: 22rem;
+    height: 14rem;
+    border-radius: 50%;
+    background: #a6ddf0;
+    filter: blur(72px);
+    z-index: -35;
+  }
 
 .aaa{
     margin-top: 30px;
@@ -76,12 +90,23 @@ body{
 
 .utop1{
     display: block;
-    align-items: center;
+    /* border: 1px solid grey; */
+    /* margin-left: 0 !important; */
+    /* align-items: flex-start; */
+    /* align-items: center; */
+}
+
+.utop1 h6{
+    margin-left: 0px;
+    margin-top: -10px;
+    font-weight: 500;
+    font-size: 15px;
 }
 
 .utop1 h3{
     font-weight: 500;
     margin-top: -10px;
+
 }
 
 .followbutton{
@@ -397,7 +422,6 @@ body{
     width: 20vw;
     position: sticky;
     top: 40px;
-
 }
 
 
@@ -416,7 +440,7 @@ body{
 .searchbar{
     padding: 4px 4px;
     display: flex;
-    width: 20vw;
+    width: fit-content;
     box-shadow: 1px 1px 2px black;
 }
 
@@ -442,12 +466,29 @@ body{
     cursor: pointer;
     border: none;
     padding: 0 !important;
-    width: 30px;
+    width: 20px;
 }
+
 
 .searchlist a:hover{
     background-color: #F8EDE3;
     transition: 0.5s;
     color: #1C315E;
     margin-left: 2px;
+}
+
+.time{
+    font-size: 10px;
+    margin-top: -20px;
+    color: rgb(27, 20, 20);
+}
+
+.utop1 h6 {
+    margin-top: -30px;
+}
+
+.prof{
+    font-weight: 400;
+    margin-top: -10px;
+
 }

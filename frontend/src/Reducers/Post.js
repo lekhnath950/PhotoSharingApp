@@ -14,6 +14,17 @@ export const likeReducer = createReducer(initialState, {
         state.loading = false;
         state.error = action.payload
     },
+    avatarRequest: (state) => {
+        state.loading = true;
+    },
+    avatarSuccess: (state, action) => {
+        state.loading = false;
+        state.message = action.payload;
+    },
+    avatarFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
 
 
 

@@ -1,10 +1,9 @@
 import { Avatar } from '@mui/material'
 import React from 'react'
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-// import { useSelector } from 'react-redux'
+// import { useEffect } from 'react'
+// import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { allPosts } from '../Actions/Post'
+// import { allPosts } from '../Actions/Post'
 
 
 const Comment = ({
@@ -17,7 +16,7 @@ const Comment = ({
     // isAccount
 }) => {
 
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     // useEffect(()=> {
     //     dispatch(allPosts())
     // })

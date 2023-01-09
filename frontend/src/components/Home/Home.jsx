@@ -5,8 +5,9 @@ import Post from '../Post/Post'
 import { useDispatch, useSelector } from 'react-redux'
 import { getallusersPosts, getFollowingPosts } from '../../Actions/User'
 import Loader from '../Loader/Loader'
-import { Avatar, Dialog } from '@mui/material'
+import { Avatar, Button, Dialog } from '@mui/material'
 import User from '../User/User'
+import moment from 'moment'
 // import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
 // import { ExpandCircleDown } from '@mui/icons-material'
 
@@ -49,6 +50,7 @@ function Home() {
                 likes={post.likes}
                 comments={post.comments}
                 // isDelete={true}
+                Time={moment(post.createdAt).fromNow()}
                 isAccount={true}
               />
 
@@ -94,6 +96,7 @@ function Home() {
 
               <div className="utop1">
                 <h5>{user.name} </h5>
+                <h6>@{user.username} </h6>
               </div>
 
 

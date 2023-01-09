@@ -8,6 +8,7 @@
     /* overflow-y:scroll; */
     position: absolute;
     left: 10%;
+    /* z-index:2; */
 }
 
 .homeright .user-profile{
@@ -28,7 +29,7 @@
 }
 
 .user-profile h5{
-    text-align: center;
+    /* text-align: center; */
 }
 
 

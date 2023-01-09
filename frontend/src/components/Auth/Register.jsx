@@ -1,4 +1,5 @@
-import { Button, Snackbar, TextField } from '@mui/material'
+import { PhotoCamera } from '@mui/icons-material'
+import { Avatar, Button, IconButton, Snackbar, TextField } from '@mui/material'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -9,27 +10,44 @@ const Register = () => {
 
     const [name,setName] = useState("")
     const [email, setEmail] = useState("")
+    const [username, setUsername] = useState("")
+    const [city, setCity] = useState("")
+    const [avatar, setAvatar] = useState("")
     const [password, setPassword] = useState("")
 
     const [open, setOpen] = React.useState(false);
-    const {error} = useSelector((state) => state.user)
+    const {error, message} = useSelector((state) => state.user)
 
     const dispatch = useDispatch();
+
+    const handleImage = (e) => {
+      const file = e.target.files[0];
+  
+      const Reader = new FileReader();
+      Reader.readAsDataURL(file);
+  
+      Reader.onload = () => {
+        if (Reader.readyState === 2) {
+          setAvatar(Reader.result);
+        }
+      };
+    };
 
     
     const SubmitHandler = async (e) => {
         e.preventDefault()
-       await  dispatch(registerUser(email,password,name))
-
-      //  if(error) {
-      //    setOpen(true)          
-      //  }
+       await  dispatch(registerUser(email,password,name,username,city,avatar))
+      //  alert("User created. Login now")
 
        if(error) {
         setOpen(true)
        }
 
+       if(message) {
+        alert("user created. Login Now")
+       }
 
+ 
        
       }
 
@@ -50,10 +68,20 @@ const Register = () => {
         <h4> Photo Sharing App</h4>
         <h5 style={{ fontWeight: '400' }}> Register here</h5>
 
+        <div className='user-avatar'>
+        <Avatar src={avatar} alt="User" sx={{ height: "50px", width: "50px" }} />
+        </div>
+
         <TextField className='inputt' type="email" value={email} onChange={(e) => setEmail(e.target.value)} id="outlined-basic" label="Email" variant="outlined" autoComplete='off' required /> <br />
         <TextField className='inputt' type="text" value={name} onChange={(e) => setName(e.target.value)} id="outlined-basic" label="Name" variant="outlined" autoComplete='off' required /> <br />
+        <TextField className='inputt' type="text" value={username} onChange={(e) => setUsername(e.target.value)} id="outlined-basic" label="Username" variant="outlined" autoComplete='off' required /> <br />
+        <TextField className='inputt' type="text" value={city} onChange={(e) => setCity(e.target.value)} id="outlined-basic" label="City" variant="outlined" autoComplete='off' required /> <br />
         <TextField className='inputt' type="password" value={password} onChange={(e) => setPassword(e.target.value)} id="outlined-basic" label="Password" variant="outlined" required /> <br />
-
+        <IconButton color='primary' aria-label="pp" component="label" className="inputt imagepp">
+          <input hidden accept="image/*" className='imagepp' type="file" onChange={handleImage} />
+          <PhotoCamera/>
+          <h5>Choose Profile Picture</h5>
+        </IconButton>
         <Button className='inputt' type="submit" variant='outlined'>SignUp</Button>
 
         <Link to="/">

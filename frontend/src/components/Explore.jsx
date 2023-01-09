@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import Loader from './Loader/Loader'
 import { allPosts } from '../Actions/Post'
 import Search from './Search'
+import moment from 'moment'
+// import Search1 from './search1'
 
 export default function Explore() {
 
@@ -17,7 +19,7 @@ export default function Explore() {
 
   }, [dispatch])
 
-  return (
+  return (   
     <>
     <Search />
     {
@@ -29,12 +31,13 @@ export default function Explore() {
 
           {
             posts && posts.length > 0 ? posts.map((post) => (
+              <>
               <Post
                 key={post.owner.name}
                 postImage={post.image.url}
                 postId={post._id}
                 ownerName={post.owner.name}
-                ownerImage={post.owner.avatar}
+                ownerImage={post.owner.avatar.url}
                 ownerId={post.owner._id}
                 caption={post.caption}
                 likes={post.likes}
@@ -42,13 +45,16 @@ export default function Explore() {
                 isDelete={false}
                 isAccount={true}
                 className="explorepost"
+                Time={moment(post.createdAt).fromNow()}
               />
+
+              </>
 
             )) : <h3>No post yet</h3>
           }
         </div>
 
-      </div>
+      </div> 
     )
   }
     </>

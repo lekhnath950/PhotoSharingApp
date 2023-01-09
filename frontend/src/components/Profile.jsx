@@ -1,4 +1,5 @@
 import { Avatar, Button, Dialog } from '@mui/material';
+import moment from 'moment';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
@@ -21,19 +22,22 @@ const Profile = () => {
 
   const [followersToggle, setFollowersToggle] = useState(false)
   const [followingToggle, setFollowingToggle] = useState(false)
-  const [following, setFollowing] = useState(false)
+   const [following, setFollowing] = useState(false)
   const [myProfile, setMyProfile] = useState(false)
 
   const followHandler = async () => {
     setFollowing(!following)
     await dispatch(followUnfollow(user._id));
     dispatch(loadUser());
+    dispatch(getUserProfile(params.id));
+
 
   }
 
   useEffect(() => {
     dispatch(getUserPost(params.id));
     dispatch(getUserProfile(params.id));
+
   }, [dispatch, params.id]);
 
 
@@ -72,7 +76,9 @@ const Profile = () => {
                   <div className='utop1'>
 
                     <div>
-                      <h3>{user.name} </h3>
+                      <h5 className='prof'><b>Name:</b> {user.name} </h5>
+                      <h5 className='prof'><b>Username:</b> @{user.username} </h5>
+                      <h5 className='prof'><b>City:</b> {user.city} </h5>
                     </div>
 
                     {
@@ -137,8 +143,9 @@ const Profile = () => {
                 likes={post.likes}
                 comments={post.comments}
                 isDelete={false}
+                Time={moment(post.createdAt).fromNow()}
                 isAccount={true}
-                Time={post.createdAt}
+                // Time={post.createdAt}
               />
             )) : <h6>No post</h6>
           }
