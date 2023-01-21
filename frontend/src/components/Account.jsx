@@ -76,8 +76,7 @@ const Account = () => {
                     </div>
 
 
-
-                    <Button onClick={()=> setMoreOptions(!MoreOptions)} >More</Button>
+                    <Button onClick={()=> setMoreOptions(!MoreOptions)} >Change Profile Picture</Button>
 
 
                     <div className=" udown">

@@ -8,7 +8,7 @@ import Loader from './Loader/Loader';
 import Post from './Post/Post';
 import User from './User/User';
 
-
+  
 const Profile = () => {
 
   // const { loading, posts } = useSelector((state) => state.myPost)
@@ -30,8 +30,6 @@ const Profile = () => {
     await dispatch(followUnfollow(user._id));
     dispatch(loadUser());
     dispatch(getUserProfile(params.id));
-
-
   }
 
   useEffect(() => {
@@ -78,7 +76,7 @@ const Profile = () => {
                     <div>
                       <h5 className='prof'><b>Name:</b> {user.name} </h5>
                       <h5 className='prof'><b>Username:</b> @{user.username} </h5>
-                      <h5 className='prof'><b>City:</b> {user.city} </h5>
+                      <h5 className='prof'><b>City:</b> {user.city}  </h5>
                     </div>
 
                     {

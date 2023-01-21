@@ -24,6 +24,7 @@ const Post = ({
   isAccount = false,
 }) => {
 
+
   const dispatch = useDispatch();
   const [liked, setLiked] = useState(false)
   const [likesUser, setLikesUser] = useState(false)
@@ -70,6 +71,8 @@ const Post = ({
     }
     setOpen(false);
 };
+
+
 
 // useEffect(()=>{
 //   dispatch(allPosts())

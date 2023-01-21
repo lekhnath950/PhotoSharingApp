@@ -5,7 +5,6 @@ import { allusersReducer, postOfFollowingReducer, searchUsercReducer, searchUser
 const store = configureStore( {
     reducer: {
         user: userReducer,
-        // loaduser: loaduserReducer,
         postOfFollowing: postOfFollowingReducer,
         allUsers: allusersReducer,
         like: likeReducer,

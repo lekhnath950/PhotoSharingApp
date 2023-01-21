@@ -78,7 +78,7 @@ const Register = () => {
         <TextField className='inputt' type="text" value={city} onChange={(e) => setCity(e.target.value)} id="outlined-basic" label="City" variant="outlined" autoComplete='off' required /> <br />
         <TextField className='inputt' type="password" value={password} onChange={(e) => setPassword(e.target.value)} id="outlined-basic" label="Password" variant="outlined" required /> <br />
         <IconButton color='primary' aria-label="pp" component="label" className="inputt imagepp">
-          <input hidden accept="image/*" className='imagepp' type="file" onChange={handleImage} />
+          <input hidden accept="image/*" className='imagepp' type="file" onChange={handleImage} required />
           <PhotoCamera/>
           <h5>Choose Profile Picture</h5>
         </IconButton>

@@ -13,20 +13,36 @@
 
 .homeright .user-profile{
     /* position: fixed; */
-    right: 1% ;
+    right: 1%;
 }
 
-.homeright h3{
+.topuser{
+
+}
+
+.avatar1 {
+    display: flex;
+    justify-content: center;
+}
+
+.userinfo{
+}
+
+.svvg{
+    vertical-align: middle;
+}
+
+.yprofile{
     text-align: center;
     box-shadow: 1px 1px 1px black;
 }
 
-.aba{
+/* .aba{
     display: block;
     width: fit-content;
     margin-left: auto;
     margin-right: auto;
-}
+} */
 
 .user-profile h5{
     /* text-align: center; */

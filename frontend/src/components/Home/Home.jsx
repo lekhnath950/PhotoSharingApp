@@ -1,26 +1,22 @@
 import './Home.css'
 import React, { useEffect, useState } from 'react'
-// import User from '../User/User'
 import Post from '../Post/Post'
 import { useDispatch, useSelector } from 'react-redux'
 import { getallusersPosts, getFollowingPosts } from '../../Actions/User'
 import Loader from '../Loader/Loader'
-import { Avatar, Button, Dialog } from '@mui/material'
+import { Avatar, Dialog } from '@mui/material'
 import User from '../User/User'
 import moment from 'moment'
-// import { Accordion, AccordionDetails, AccordionSummary } from '@mui/material'
-// import { ExpandCircleDown } from '@mui/icons-material'
+import { PermIdentity, Person, Room } from '@mui/icons-material'
+
 
 function Home() {
 
   const dispatch = useDispatch();
-
   const { user } = useSelector((state) => state.user)
 
   const [followersToggle, setFollowersToggle] = useState(false)
   const [followingToggle, setFollowingToggle] = useState(false)
-
-
   const { loading, posts } = useSelector((state) => state.postOfFollowing)
   // const { users } = useSelector((state) => state.allUsers)
 
@@ -29,6 +25,7 @@ function Home() {
     dispatch(getallusersPosts());
     // dispatch(loadUser())
   }, [dispatch])
+
 
   return (
 
@@ -86,17 +83,18 @@ function Home() {
 
         <div className='homeright'>
           <div className="user-profile">
-          <h3>Your Profile</h3>
+          <h3 className='yprofile'>Your Profile</h3>
 
-            <div className='top-user aba'>
+            <div className='topuser'>
 
-              <div className='avatar'>
-                <Avatar src={user.avatar.url} sx={{ width: 60, height: 60 }} />
+              <div className='avatar1'>
+                <Avatar src={user.avatar.url} sx={{ width: 90, height: 90 }} />
               </div>
 
-              <div className="utop1">
-                <h5>{user.name} </h5>
-                <h6>@{user.username} </h6>
+              <div className="userinfo">
+                <h3 className='abab'><Person className='svvg'/>{user.name} </h3>
+                <h5><PermIdentity className='svvg'/>@{user.username} </h5>
+                <h5><Room className='svvg'/>{user.city}</h5>
               </div>
 
 
