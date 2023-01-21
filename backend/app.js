@@ -19,8 +19,6 @@ if(process.env.NODE_ENV =='production') {
 
 }
 
-
-
 //middlewares
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({limit: '50mb', extended: true }));
@@ -29,7 +27,7 @@ app.use(cookieParser());
 const post = require("./routes/post");
 const user = require("./routes/user");
 // const { dirname } = require("path");
-const { dirname } = require("path");
+// const { dirname } = require("path");
 
 app.use("/api", post);
 app.use("/api", user);
