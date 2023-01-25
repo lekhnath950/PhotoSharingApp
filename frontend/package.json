@@ -45,7 +45,7 @@
     ]
   },
   
-    "proxy": "https://photoshringapp.onrender.com",
+    "proxy": "https://photoshringapp.onrender.com/",
   
   "devDependencies": {
     "webpack": "^5.75.0",
