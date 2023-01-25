@@ -7,17 +7,17 @@ if(process.env.NODE_ENV !== "production") {
 
 }
 
-if(process.env.NODE_ENV =='production') {
-    const path = require('path')
+// if(process.env.NODE_ENV =='production') {
+//     const path = require('path')
 
-    app.use(express.static(path.join(__dirname, "./frontend/build")));
-    app.get("*",function(_,res) {
-        res.sendFile(
-            path.join(__dirname,"./frontend/build/index.html")
-        )
-    })
+//     app.use(express.static(path.join(__dirname, "./frontend/build")));
+//     app.get("*",function(_,res) {
+//         res.sendFile(
+//             path.join(__dirname,"./frontend/build/index.html")
+//         )
+//     })
 
-}
+// }
 
 //middlewares
 app.use(express.json({limit: '50mb'}));
