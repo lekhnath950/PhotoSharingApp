@@ -2,7 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://photoshringapp.onrender.com",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
@@ -25,7 +24,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -45,8 +44,9 @@
       "last 1 safari version"
     ]
   },
-  
-  
+
+  "proxy": "https://photoshringapp.onrender.com",
+
   "devDependencies": {
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
